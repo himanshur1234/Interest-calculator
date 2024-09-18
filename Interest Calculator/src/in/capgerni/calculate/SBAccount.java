@@ -12,14 +12,16 @@ public class SBAccount extends Account {
         System.out.println("Are you NRI? Enter 'yes' if so");
         String str = sc.next();
         sc.close();
-
+        double interest;
         if (amount <= 0) {
             System.out.println("Invalid amount. Amount must be greater than zero.");
             return;
         }
-
-        double interestRate = str.equalsIgnoreCase("yes") ? 6 : 4;
-        double interest = calculateInterest(interestRate, amount);
+        
+        if(str=="yes") {
+         interest = calculateInterest(6, amount);
+        }else {
+        interest = calculateInterest(4, amount);}
         System.out.println("Interest gained: Rs." + interest);
     }
 
